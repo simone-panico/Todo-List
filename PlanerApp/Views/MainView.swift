@@ -8,9 +8,15 @@
 import SwiftUI
 
 struct MainView: View {
+    @StateObject var viewModel = MainViewViewModel()
+    
     var body: some View {
-        NavigationView {
-            LoginView()
+        if viewModel.isSignedIn, !viewModel.currentUserId.isEmpty {
+            PlanerView()
+        } else {
+            NavigationView {
+                LoginView()
+            }
         }
     }
 }
