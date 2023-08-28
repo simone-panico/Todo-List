@@ -12,8 +12,20 @@ struct MainView: View {
     
     var body: some View {
         if viewModel.isSignedIn, !viewModel.currentUserId.isEmpty {
-            PlanerView()
-        } else {
+            TabView {
+                PlanerView(userId: viewModel.currentUserId)
+                    .tabItem {
+                        Label("Home", systemImage: "house")
+                    }
+                
+                ProfileView()
+                    .tabItem {
+                        Label("Profile", systemImage: "person.circle")
+                    }
+                
+            }
+        }
+             else {
             NavigationView {
                 LoginView()
             }

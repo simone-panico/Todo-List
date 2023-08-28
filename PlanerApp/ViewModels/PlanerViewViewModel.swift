@@ -6,3 +6,7 @@
 //
 
 import Foundation
+
+class PlanerViewViewModel: ObservableObject {
+    init () {}
+}
