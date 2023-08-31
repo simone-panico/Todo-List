@@ -13,20 +13,23 @@ struct ButtonView: View {
     let action: () -> Void
     
     var body: some View {
-        Button {
-            action()
-        } label: {
-            ZStack {
-                RoundedRectangle(cornerRadius: 10)
-                    .foregroundColor(background)
+        (
+            Button {
+                action()
+            } label: {
+                ZStack {
+                    RoundedRectangle(cornerRadius: 10)
+                        .foregroundColor(background)
+                    
+                    Text(title)
+                        .foregroundColor(Color.white)
+                        .bold()
+                }
                 
-                Text(title)
-                    .foregroundColor(Color.white)
-                    .bold()
             }
-            
+            )
         }
-    }
+        
 }
 
 struct ButtonView_Previews: PreviewProvider {
